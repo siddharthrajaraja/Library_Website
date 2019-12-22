@@ -1,0 +1,45 @@
+<div class="center-align"><img src="/assets/images/logo1.png" class="responsive-img" alt=""></div>
+<nav class="nav-extended black">
+  <div class="nav-content" id="competitions">
+    <ul class="tabs tabs-transparent">
+      <li class="tab"><a class="active" href="#e-journals">e-Journals</a></li>
+      <li class="tab"><a  href="#e-book">e - Book</a></li>
+      <li class="tab"><a href="#library_book_search">Library Book Search</a></li>
+      <li class="tab"><a href="#quest_paper">question paper</a></li>
+      <li class="tab"><a href="#journals_and_magazine">Journals And Magazine</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div id="e-journals" class="col s12"  ><%-include ('e-journals.ejs')%></div>
+<div id="e-book" class="col s12" ><%- include ('e-book.ejs')%></div>
+<div id="library_book_search" class="col s12" ><%- include('library_book_search')%></div>
+<div id="quest_paper" class="col s12" ><%- include('quest_paper') %></div>
+<div id="journals_and_magazine" class="col s12" ><%-include ('journals_magazine.ejs')%></div>
+
+
+<script>
+  
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {});
+  var el = document.querySelectorAll('.tabs');
+  
+  var instance = M.Tabs.init(el, {});
+});
+
+</script>
+
+<script>
+var url=document.URL.split("/")
+console.log(url)
+if(url[url.length-1]=="login" || url[url.length-2]=="question"){
+  document.getElementById('e-journals').style.display="none";
+  document.getElementById('e-book').style.display="none";
+  document.getElementById('library_book_search').style.display="none";
+  document.getElementById('quest_paper').style.display="none";
+  document.getElementById('journals_and_magazine').style.display="none";
+  
+}
+</script>
